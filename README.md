@@ -1,2 +1,1 @@
-# Number-Guesing-Game
- My first Techdegree project
+# Techdegree Poject 1
