@@ -21,13 +21,16 @@ def start_game():
       print("\nThe HIGHSCORE is", highscore)
   
     while number_guessed != answer:
-      number_guessed = int(input("Pick a number betweeen 1 and 10: "))
-      if number_guessed < 1 or number_guessed > 10:
-        raise ValueError("Oh no! This value is outside the range. Try again...")
-      if number_guessed > answer:
-        print("It's higher!")
-      elif number_guessed < answer:
-        print("It's lower!")
+      try:
+        number_guessed = int(input("Pick a number betweeen 1 and 10: "))
+        if number_guessed < 1 or number_guessed > 10:
+          print("Oh no! This value is outside the range. Try again...")
+        elif number_guessed > answer:
+          print("It's lower! You need to guess lower.")
+        elif number_guessed < answer:
+          print("It's higher! You need to guess higher.")
+      except ValueError:
+        print("Oh no! The value entered is not a number. Try again...")
       attempts += 1
     
     if game_count == 1:
